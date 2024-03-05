@@ -43,6 +43,12 @@ annotate service.SPOC_IT_TEAM with @(
             ID : 'section2',
             Target : '@UI.FieldGroup#section2',
         },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Comments',
+            ID : 'Comments',
+            Target : '@UI.FieldGroup#Comments',
+        },
     ],
     UI.FieldGroup #section1 : {
         $Type : 'UI.FieldGroupType',
@@ -105,7 +111,7 @@ annotate service.SPOC_IT_TEAM with @(
             },{
                 $Type : 'UI.DataField',
                 Value : Business_Reason,
-                Label : 'Business Reason',
+                Label : 'Business Reason For Request',
             },],
     }
 );
@@ -250,3 +256,17 @@ annotate service.SPOC_IT_TEAM with {
         },
         Common.ValueListWithFixedValues : false
 )};
+annotate service.SPOC_IT_TEAM with @(
+    UI.FieldGroup #Comments : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : comments,
+                Label : 'comments',
+            },],
+    }
+);
+annotate service.SPOC_IT_TEAM with {
+    comments @UI.MultiLineText : true
+};

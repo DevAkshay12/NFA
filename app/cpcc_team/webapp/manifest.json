@@ -168,6 +168,15 @@
                       },
                       "title": "confirmation",
                       "type": "XMLFragment"
+                    },
+                    "Worflow_History": {
+                      "template": "cpccteam.ext.fragment.Worflow_History",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Attachments"
+                      },
+                      "title": "WorkFlow History",
+                      "type": "XMLFragment"
                     }
                   }
                 },

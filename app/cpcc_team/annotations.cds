@@ -21,12 +21,6 @@ annotate service.cpcc_team with @(
             ID : 'Comments',
             Target : '@UI.FieldGroup#Comments',
         },
-        {
-            $Type : 'UI.ReferenceFacet',
-            Label : 'Workflow History',
-            ID : 'WorkflowHistory',
-            Target : 'child/@UI.LineItem#WorkflowHistory',
-        },
     ],
     UI.FieldGroup #section1 : {
         $Type : 'UI.FieldGroupType',
@@ -89,7 +83,7 @@ annotate service.cpcc_team with @(
             },{
                 $Type : 'UI.DataField',
                 Value : Business_Reason,
-                Label : 'Business Reason',
+                Label : 'Business Reason For Request',
             },],
     }
 );

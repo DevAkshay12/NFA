@@ -56,22 +56,22 @@
                     <Text text="Title" id="0t2"/>
                 </Column>
                 <Column id="0c2" styleClass="colClass" width="11rem">
-                    <Text text="Employee_id" id="0t3"/>
+                    <Text text="Employee Id" id="0t3"/>
                 </Column>
                 <Column id="0c3" styleClass="colClass" width="11rem">
-                    <Text text="Employee_Name" id="0t4"/>
+                    <Text text="Employee Name" id="0t4"/>
                 </Column>
                 <Column id="0c4" styleClass="colClass" width="11rem">
-                    <Text text="Begin_Date_Time" id="0t5"/>
+                    <Text text="Begin Date Time" id="0t5"/>
                 </Column>
                 <Column id="0c5" styleClass="colClass" width="11rem">
-                    <Text text="End_Date_Time" id="0t6"/>
+                    <Text text="End Date Time" id="0t6"/>
                 </Column>
                 <Column id="0c6" styleClass="colClass" width="11rem">
-                    <Text text="Days_Taken" id="0t7"/>
+                    <Text text="Days Taken" id="0t7"/>
                 </Column>
                 <Column id="0c7" styleClass="colClass" width="11rem">
-                    <Text text="Approved_By" id="0t8"/>
+                    <Text text="Approved By" id="0t8"/>
                 </Column>
             </columns>
             <items>

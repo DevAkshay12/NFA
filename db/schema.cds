@@ -22,6 +22,7 @@ entity SPOC_IT_TEAM {
         Sales_unit            : String;
         Plant                 : String;
         Business_Reason       : String;
+        comments               : String;
 }
 
 

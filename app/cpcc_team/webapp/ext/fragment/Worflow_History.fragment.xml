@@ -2,7 +2,7 @@
     <VBox id="v1">
 	  
             <HBox id="buttonContainer" alignItems="End" justifyContent="End" width="100%">
-            <Button core:require="{ handler: 'scmit/ext/fragment/Worflow_History'}" text="Comments" press="handler.onPress" id="b2" icon="sap-icon://comment" />
+            <Button core:require="{ handler: 'cpccteamext/fragment/Worflow_History'}" text="Comments" press="handler.onPress" id="b2" icon="sap-icon://comment" />
         </HBox>
       
         <Title text="Level1" id="title1"/>

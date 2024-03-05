@@ -63,7 +63,8 @@
         "sap.m": {},
         "sap.ui.core": {},
         "sap.ushell": {},
-        "sap.fe.templates": {}
+        "sap.fe.templates": {},
+        "sap.suite.ui.commons": {}
       }
     },
     "contentDensities": {
@@ -93,9 +94,11 @@
       }
     },
     "resources": {
-      "css": [{
-        "uri": "css/style.css"
-      }]
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
     },
     "routing": {
       "routes": [
@@ -163,6 +166,19 @@
                         "placement": "After",
                         "anchor": "submit"
                       }
+                    }
+                  }
+                },
+                "body": {
+                  "sections": {
+                    "Worflow_History": {
+                      "template": "spocteam.ext.fragment.Worflow_History",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "section2"
+                      },
+                      "title": "Workflow History",
+                      "type": "XMLFragment"
                     }
                   }
                 }
