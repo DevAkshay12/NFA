@@ -1,0 +1,206 @@
+_schema-version: "3.1"
+ID: Approval
+description: A simple CAP project.
+version: 1.0.0
+modules:
+- name: Approval-srv
+  type: nodejs
+  path: gen/srv
+  requires:
+  - name: Approval-auth
+  - name: Approval-db
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+  build-parameters:
+    builder: npm
+- name: Approval-db-deployer
+  type: hdb
+  path: gen/db
+  requires:
+  - name: Approval-db
+  parameters:
+    buildpack: nodejs_buildpack
+- name: Approval-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: Approval-destination-service
+    parameters:
+      content-target: true
+  - name: Approval_html_repo_host
+    parameters:
+      service-key:
+        name: Approval_html_repo_host-key
+  - name: Approval-auth
+    parameters:
+      service-key:
+        name: Approval-auth-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: approval_Approval_html_repo_host
+          ServiceInstanceName: Approval-html5-app-host-service
+          ServiceKeyName: Approval_html_repo_host-key
+          sap.cloud.service: approval
+        - Authentication: OAuth2UserTokenExchange
+          Name: approval_Approval_auth
+          ServiceInstanceName: Approval-auth
+          ServiceKeyName: Approval-auth-key
+          sap.cloud.service: approval
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: Approval-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: Approval_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - spocteam.zip
+      name: spocteam
+      target-path: resources/
+    - artifacts:
+      - cpccteam.zip
+      name: cpccteam
+      target-path: resources/
+    - artifacts:
+      - headscm.zip
+      name: headscm
+      target-path: resources/
+    - artifacts:
+      - headscm1.zip
+      name: headscm1
+      target-path: resources/
+    - artifacts:
+      - headscm2.zip
+      name: headscm2
+      target-path: resources/
+    - artifacts:
+      - scmit.zip
+      name: scmit
+      target-path: resources/
+- name: spocteam
+  type: html5
+  path: app/spoc_team
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: cpccteam
+  type: html5
+  path: app/cpcc_team
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: headscm
+  type: html5
+  path: app/head_scm
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: headscm1
+  type: html5
+  path: app/head_scm1
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: headscm2
+  type: html5
+  path: app/head_scm2
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: scmit
+  type: html5
+  path: app/scm_it
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: Approval-auth
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      tenant-mode: dedicated
+      xsappname: Approval-${org}-${space}
+    path: ./xs-security.json
+    service: xsuaa
+    service-plan: application
+- name: Approval-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+- name: Approval-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          - Authentication: NoAuthentication
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            Name: Approval-srv-api
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: Approval-destination-service
+    service-plan: lite
+  requires:
+  - name: srv-api
+- name: Approval_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: Approval-html5-app-host-service
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npx cds build --production

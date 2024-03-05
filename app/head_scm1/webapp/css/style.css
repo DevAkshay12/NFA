@@ -1,0 +1,40 @@
+#headscm1\:\:head_sc1ObjectPage--fe\:\:CustomSubSection\:\:Attachments-innerGrid
+{
+    height: 270px !important;
+    overflow: scroll !important;
+}
+
+
+#headscm1\:\:head_sc1ObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:Submit-inner
+{
+    color: white;
+    background-color: mediumseagreen;
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+#headscm1\:\:head_sc1ObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:Discard-inner
+{
+    color: white;
+    background-color: orangered;
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+.sapUiFormCLElement
+{
+    background-color: aliceblue;
+    margin-bottom: 1%;
+    border-radius: 10px;
+}
+
+.colClass{
+    border: solid 1px black;
+    
+
+}
+.customMarginTop {
+    margin-top: 20px; /* Adjust the value as needed */
+}
+
+.noBorder .sapMTBInner {
+    border: none !important;
+}

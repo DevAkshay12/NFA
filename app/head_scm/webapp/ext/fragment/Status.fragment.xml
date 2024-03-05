@@ -1,0 +1,3 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Button core:require="{ handler: 'headscm/ext/fragment/Status'}" text="Nominate" press="handler.onPress" id= "a1" />
+</core:FragmentDefinition>

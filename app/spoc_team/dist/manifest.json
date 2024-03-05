@@ -1,0 +1,186 @@
+{
+    "_version": "1.59.0",
+    "sap.app": {
+        "id": "spocteam",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:lrop",
+            "version": "1.12.5",
+            "toolsId": "476bb4bc-6ea4-4aff-b5ad-2c15c4f6c178"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "odata/v4/my/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "spoc_team-display": {
+                    "semanticObject": "spoc_team",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    }
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.120.9",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.fe.templates": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "spocteam.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "SPOC_IT_TEAMList",
+                    "target": "SPOC_IT_TEAMList"
+                },
+                {
+                    "pattern": "SPOC_IT_TEAM({key}):?query:",
+                    "name": "SPOC_IT_TEAMObjectPage",
+                    "target": "SPOC_IT_TEAMObjectPage"
+                }
+            ],
+            "targets": {
+                "SPOC_IT_TEAMList": {
+                    "type": "Component",
+                    "id": "SPOC_IT_TEAMList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "contextPath": "/SPOC_IT_TEAM",
+                            "variantManagement": "Page",
+                            "navigation": {
+                                "SPOC_IT_TEAM": {
+                                    "detail": {
+                                        "route": "SPOC_IT_TEAMObjectPage"
+                                    }
+                                }
+                            },
+                            "initialLoad": "Enabled",
+                            "controlConfiguration": {
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "tableSettings": {
+                                        "type": "GridTable"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "SPOC_IT_TEAMObjectPage": {
+                    "type": "Component",
+                    "id": "SPOC_IT_TEAMObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": false,
+                            "contextPath": "/SPOC_IT_TEAM",
+                            "content": {
+                                "footer": {
+                                    "actions": {
+                                        "submit": {
+                                            "press": "spocteam.ext.controller.Submit.submit",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "Submit"
+                                        },
+                                        "Discard": {
+                                            "press": "spocteam.ext.controller.Discard.discard",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "Discard",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "submit"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "approval"
+    }
+}

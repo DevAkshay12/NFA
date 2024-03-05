@@ -1,0 +1,27 @@
+#cpccteam\:\:cpcc_teamObjectPage--fe\:\:CustomSubSection\:\:Attachments-innerGrid
+{
+    height: 270px;
+    overflow: scroll;
+}
+
+
+#cpccteam\:\:cpcc_teamObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:submit-inner
+{
+    color: white;
+    background-color: mediumseagreen;
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+#cpccteam\:\:cpcc_teamObjectPage--fe\:\:FooterBar\:\:CustomAction\:\:Discard-inner
+{
+    color: white;
+    background-color: orangered;
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+.sapUiFormCLElement
+{
+    background-color: aliceblue;
+    margin-bottom: 1%;
+    border-radius: 10px;
+}

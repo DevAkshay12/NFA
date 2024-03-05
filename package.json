@@ -1,0 +1,45 @@
+{
+    "name": "Approval",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^7",
+        "@sap/cds-hana": "^2",
+        "@sap/xssec": "^3",
+        "express": "^4"
+    },
+    "devDependencies": {
+        "@cap-js/sqlite": "^1",
+        "@sap/cds-dk": "^7",
+        "@sap/ux-specification": "^1.120.5",
+        "rimraf": "^3.0.2"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "watch-spoc_team": "cds watch --open spoc_team/webapp/index.html?sap-ui-xx-viewCache=false",
+        "undeploy": "cf undeploy Approval --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+        "watch-cpcc_team": "cds watch --open cpcc_team/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-head_scm": "cds watch --open head_scm/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-head_scm1": "cds watch --open head_scm1/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-head_scm2": "cds watch --open head_scm2/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-scm_it": "cds watch --open scm_it/webapp/index.html?sap-ui-xx-viewCache=false"
+    },
+    "cds": {
+        "requires": {
+            "auth": "dummy"
+        }
+    },
+    "sapux": [
+        "app/spoc_team",
+        "app/cpcc_team",
+        "app/head_scm",
+        "app/head_scm1",
+        "app/head_scm2",
+        "app/scm_it"
+    ]
+}

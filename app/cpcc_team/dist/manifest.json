@@ -1,0 +1,217 @@
+{
+    "_version": "1.59.0",
+    "sap.app": {
+        "id": "cpccteam",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:lrop",
+            "version": "1.12.5",
+            "toolsId": "0528887d-4b45-4e01-96d6-b6a5522411e9"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "odata/v4/my/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "cpcc_team-display": {
+                    "semanticObject": "cpcc_team",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    }
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.120.9",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.fe.templates": {},
+                "sap.suite.ui.commons": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "cpccteam.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "cpcc_teamList",
+                    "target": "cpcc_teamList"
+                },
+                {
+                    "pattern": "cpcc_team({key}):?query:",
+                    "name": "cpcc_teamObjectPage",
+                    "target": "cpcc_teamObjectPage"
+                }
+            ],
+            "targets": {
+                "cpcc_teamList": {
+                    "type": "Component",
+                    "id": "cpcc_teamList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "contextPath": "/cpcc_team",
+                            "variantManagement": "Page",
+                            "navigation": {
+                                "cpcc_team": {
+                                    "detail": {
+                                        "route": "cpcc_teamObjectPage"
+                                    }
+                                }
+                            },
+                            "controlConfiguration": {
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "tableSettings": {
+                                        "type": "GridTable"
+                                    }
+                                }
+                            },
+                            "initialLoad": "Enabled"
+                        }
+                    }
+                },
+                "cpcc_teamObjectPage": {
+                    "type": "Component",
+                    "id": "cpcc_teamObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": false,
+                            "contextPath": "/cpcc_team",
+                            "content": {
+                                "body": {
+                                    "sections": {
+                                        "Attachments": {
+                                            "template": "cpccteam.ext.fragment.Attachments",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "section2"
+                                            },
+                                            "title": "attachments",
+                                            "type": "XMLFragment"
+                                        }
+                                    }
+                                },
+                                "footer": {
+                                    "actions": {
+                                        "submit": {
+                                            "press": "cpccteam.ext.controller.Submit.submit",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "submit"
+                                        },
+                                        "Discard": {
+                                            "press": "cpccteam.ext.controller.Discard.Discard",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "Discard",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "submit"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "controlConfiguration": {
+                                "@com.sap.vocabularies.UI.v1.FieldGroup#Comments": {
+                                    "actions": {
+                                        "comments": {
+                                            "press": "cpccteam.ext.controller.Comments.comments",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "Comments"
+                                        }
+                                    }
+                                },
+                                "child/@com.sap.vocabularies.UI.v1.LineItem#WorkflowHistory": {
+                                    "tableSettings": {
+                                        "type": "GridTable"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "approval"
+    }
+}
