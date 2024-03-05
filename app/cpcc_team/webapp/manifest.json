@@ -155,18 +155,18 @@
                       "template": "cpccteam.ext.fragment.Attachments",
                       "position": {
                         "placement": "After",
-                        "anchor": "section2"
+                        "anchor": "Comments"
                       },
-                      "title": "attachments",
+                      "title": "Attachments",
                       "type": "XMLFragment"
                     },
                     "Confirm": {
                       "template": "cpccteam.ext.fragment.Confirm",
                       "position": {
-                        "placement": "Before",
-                        "anchor": "Attachments"
+                        "placement": "After",
+                        "anchor": "section2"
                       },
-                      "title": "confirmation",
+                      "title": "Confirmation",
                       "type": "XMLFragment"
                     },
                     "Worflow_History": {
@@ -202,16 +202,6 @@
                 }
               },
               "controlConfiguration": {
-                "@com.sap.vocabularies.UI.v1.FieldGroup#Comments": {
-                  "actions": {
-                    "comments": {
-                      "press": "cpccteam.ext.controller.Comments.comments",
-                      "visible": true,
-                      "enabled": true,
-                      "text": "Comments"
-                    }
-                  }
-                },
                 "child/@com.sap.vocabularies.UI.v1.LineItem#WorkflowHistory": {
                   "tableSettings": {
                     "type": "GridTable"

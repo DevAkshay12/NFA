@@ -185,7 +185,7 @@
                       "template": "headscm2.ext.fragment.Worflow_History",
                       "position": {
                         "placement": "After",
-                        "anchor": "Comments"
+                        "anchor": "Attachments"
                       },
                       "title": "WorkFlow History",
                       "type": "XMLFragment"
@@ -194,9 +194,9 @@
                       "template": "headscm2.ext.fragment.Attachments",
                       "position": {
                         "placement": "After",
-                        "anchor": "SalesView"
+                        "anchor": "Comments"
                       },
-                      "title": "attachments",
+                      "title": "Attachments",
                       "type": "XMLFragment"
                     }
                   }

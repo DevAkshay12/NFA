@@ -22,7 +22,7 @@ entity SPOC_IT_TEAM {
         Sales_unit            : String;
         Plant                 : String;
         Business_Reason       : String;
-        comments               : String;
+        comments              : String;
 }
 
 
@@ -70,6 +70,7 @@ entity cpcc_team {
 
 entity workflow_History {
     key New_Model_Code  : String;
+        Level           : String;
         Title           : String;
         Employee_id     : String;
         Employee_Name   : String;

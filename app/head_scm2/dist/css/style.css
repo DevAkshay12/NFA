@@ -18,3 +18,23 @@
     margin-bottom: 1%;
     border-radius: 10px;
 }
+
+.colClass{
+    border: solid 1px black;
+    
+
+}
+.customMarginTop {
+    margin-top: 20px; /* Adjust the value as needed */
+}
+
+.noBorder .sapMTBInner {
+    border: none !important;
+}
+
+#headscm2\:\:head_sc2ObjectPage--fe\:\:CustomSubSection\:\:Attachments-innerGrid
+{
+    height: 270px !important;
+    overflow: scroll !important;
+}
+

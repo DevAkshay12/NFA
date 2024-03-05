@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<!-- <VBox>
+		<Button core:require="{ handler: 'cpccteam/ext/fragment/Confirm'}" text="Confirm" press="handler.onPress" />
+	</VBox> -->
+
+
+		<HBox id="h1">
+			<Switch state="true" customTextOn="Yes" customTextOff="No" id="s1">
+				<layoutData>
+					<FlexItemData growFactor="1" id="f1"/>
+				</layoutData>
+			</Switch>
+		</HBox>
+</core:FragmentDefinition>

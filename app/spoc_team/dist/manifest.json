@@ -63,7 +63,8 @@
                 "sap.m": {},
                 "sap.ui.core": {},
                 "sap.ushell": {},
-                "sap.fe.templates": {}
+                "sap.fe.templates": {},
+                "sap.suite.ui.commons": {}
             }
         },
         "contentDensities": {
@@ -165,6 +166,19 @@
                                                 "placement": "After",
                                                 "anchor": "submit"
                                             }
+                                        }
+                                    }
+                                },
+                                "body": {
+                                    "sections": {
+                                        "Worflow_History": {
+                                            "template": "spocteam.ext.fragment.Worflow_History",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "Comments"
+                                            },
+                                            "title": "Workflow History",
+                                            "type": "XMLFragment"
                                         }
                                     }
                                 }

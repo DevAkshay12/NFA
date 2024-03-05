@@ -4,8 +4,7 @@ sap.ui.define([
     'use strict';
 
     return {
-        comments: function(oEvent) {
-            MessageToast.show("Custom handler invoked.");
+        onPress: function(oEvent) {
             var cdialog = new sap.m.Dialog({
                 title: "Approval Comments",
                 endButton: new sap.m.Button({
@@ -66,5 +65,4 @@ debugger
 
         }
     };
-    
 });

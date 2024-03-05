@@ -116,7 +116,7 @@ annotate service.head_sc2 with @(
             },{
                 $Type : 'UI.DataField',
                 Value : Business_Reason,
-                Label : 'Business Reason',
+                Label : 'Business Reason For Request',
             },],
     }
 );

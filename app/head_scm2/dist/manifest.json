@@ -63,7 +63,8 @@
                 "sap.m": {},
                 "sap.ui.core": {},
                 "sap.ushell": {},
-                "sap.fe.templates": {}
+                "sap.fe.templates": {},
+                "sap.suite.ui.commons": {}
             }
         },
         "contentDensities": {
@@ -177,9 +178,40 @@
                                             }
                                         }
                                     }
+                                },
+                                "body": {
+                                    "sections": {
+                                        "Worflow_History": {
+                                            "template": "headscm2.ext.fragment.Worflow_History",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "Attachments"
+                                            },
+                                            "title": "WorkFlow History",
+                                            "type": "XMLFragment"
+                                        },
+                                        "Attachments": {
+                                            "template": "headscm2.ext.fragment.Attachments",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "Comments"
+                                            },
+                                            "title": "Attachments",
+                                            "type": "XMLFragment"
+                                        }
+                                    }
                                 }
                             }
                         }
+                    }
+                }
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {
+                    "sap.fe.templates.ObjectPage.ObjectPageController": {
+                        "controllerName": "headscm2.ext.controller.Object"
                     }
                 }
             }

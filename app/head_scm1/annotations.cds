@@ -45,7 +45,7 @@ annotate service.head_sc1 with @(
         },
         {
             $Type : 'UI.ReferenceFacet',
-            Label : 'comments',
+            Label : 'Comments',
             ID : 'comments',
             Target : '@UI.FieldGroup#comments',
         },
@@ -112,7 +112,7 @@ annotate service.head_sc1 with @(
             {
                 $Type : 'UI.DataField',
                 Value : Business_Reason,
-                Label : 'Business Reason',
+                Label : 'Business Reason For Request',
             },],
     }
 );

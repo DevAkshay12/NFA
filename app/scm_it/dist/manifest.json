@@ -63,7 +63,8 @@
                 "sap.m": {},
                 "sap.ui.core": {},
                 "sap.ushell": {},
-                "sap.fe.templates": {}
+                "sap.fe.templates": {},
+                "sap.suite.ui.commons": {}
             }
         },
         "contentDensities": {
@@ -165,6 +166,28 @@
                                                 "placement": "After",
                                                 "anchor": "Approve"
                                             }
+                                        }
+                                    }
+                                },
+                                "body": {
+                                    "sections": {
+                                        "Attachments": {
+                                            "template": "scmit.ext.fragment.Attachments",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "Comments"
+                                            },
+                                            "title": "Attachments",
+                                            "type": "XMLFragment"
+                                        },
+                                        "Worflow_History": {
+                                            "template": "scmit.ext.fragment.Worflow_History",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "Attachments"
+                                            },
+                                            "title": "Workflow History",
+                                            "type": "XMLFragment"
                                         }
                                     }
                                 }

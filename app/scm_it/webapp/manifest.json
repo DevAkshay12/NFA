@@ -174,7 +174,7 @@
                     "Attachments": {
                       "template": "scmit.ext.fragment.Attachments",
                       "position": {
-                        "placement": "Before",
+                        "placement": "After",
                         "anchor": "Comments"
                       },
                       "title": "Attachments",
@@ -184,7 +184,7 @@
                       "template": "scmit.ext.fragment.Worflow_History",
                       "position": {
                         "placement": "After",
-                        "anchor": "Comments"
+                        "anchor": "Attachments"
                       },
                       "title": "Workflow History",
                       "type": "XMLFragment"

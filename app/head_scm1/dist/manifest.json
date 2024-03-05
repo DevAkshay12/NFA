@@ -155,9 +155,18 @@
                                             "template": "headscm1.ext.fragment.Attachments",
                                             "position": {
                                                 "placement": "After",
-                                                "anchor": "SalesView"
+                                                "anchor": "comments"
                                             },
-                                            "title": "attachments",
+                                            "title": "Attachments",
+                                            "type": "XMLFragment"
+                                        },
+                                        "Worflow_History": {
+                                            "template": "headscm1.ext.fragment.Worflow_History",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "Attachments"
+                                            },
+                                            "title": "Workflow History",
                                             "type": "XMLFragment"
                                         }
                                     }
@@ -184,16 +193,6 @@
                                 }
                             },
                             "controlConfiguration": {
-                                "@com.sap.vocabularies.UI.v1.FieldGroup#comments": {
-                                    "actions": {
-                                        "comments": {
-                                            "press": "headscm1.ext.controller.Comments.comments",
-                                            "visible": true,
-                                            "enabled": true,
-                                            "text": "comments"
-                                        }
-                                    }
-                                },
                                 "child1/@com.sap.vocabularies.UI.v1.LineItem#WorkflowHistory1": {
                                     "tableSettings": {
                                         "type": "GridTable"

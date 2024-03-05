@@ -1,1 +1,1 @@
-sap.ui.define(["sap/m/MessageToast"],function(s){"use strict";return{onPress:function(e){s.show("Custom handler invoked.")}}});
+sap.ui.define(["sap/m/MessageToast"],function(s){"use strict";return{onPress:function(e){s.show("For Approval")}}});

@@ -175,7 +175,7 @@
                       "template": "spocteam.ext.fragment.Worflow_History",
                       "position": {
                         "placement": "After",
-                        "anchor": "section2"
+                        "anchor": "Comments"
                       },
                       "title": "Workflow History",
                       "type": "XMLFragment"

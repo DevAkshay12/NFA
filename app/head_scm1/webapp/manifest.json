@@ -155,16 +155,16 @@
                       "template": "headscm1.ext.fragment.Attachments",
                       "position": {
                         "placement": "After",
-                        "anchor": "SalesView"
+                        "anchor": "comments"
                       },
-                      "title": "attachments",
+                      "title": "Attachments",
                       "type": "XMLFragment"
                     },
                     "Worflow_History": {
                       "template": "headscm1.ext.fragment.Worflow_History",
                       "position": {
                         "placement": "After",
-                        "anchor": "comments"
+                        "anchor": "Attachments"
                       },
                       "title": "Workflow History",
                       "type": "XMLFragment"
